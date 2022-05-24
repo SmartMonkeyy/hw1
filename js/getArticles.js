@@ -261,7 +261,7 @@ function open(event){
             if(sectionCreated[i].id === a_Selected.id){
                 a_Selected.innerHTML = "Continue reading...";
                 if(window.innerWidth <= 1000){
-                    sectionCreated[i].style.setProperty('height', "700px");
+                    sectionCreated[i].style.setProperty('height', "750px");
                 }else{
                     sectionCreated[i].style.setProperty('height', "450px");
                 }

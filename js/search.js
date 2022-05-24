@@ -89,16 +89,9 @@ function onJSONMODAL(json){
                 spanHeading.setAttribute('id', "paragraph");
                 spanHeading.textContent = heading;
         
-                var spanParagraph = document.createElement('span');
-                spanParagraph.classList.add('margin');
-                spanParagraph.classList.add('hidden');
-                spanParagraph.setAttribute('id', 'hidden');
-                spanParagraph.textContent = paragraph;
-        
                 sec.appendChild(img);
                 sec.appendChild(h2);
                 sec.appendChild(spanHeading);
-                sec.appendChild(spanParagraph);
     
                 aContainer.appendChild(sec);
         
@@ -130,16 +123,9 @@ function onJSONMODAL(json){
                     spanHeading.setAttribute('id', "paragraph");
                     spanHeading.textContent = heading;
             
-                    var spanParagraph = document.createElement('span');
-                    spanParagraph.classList.add('margin');
-                    spanParagraph.classList.add('hidden');
-                    spanParagraph.setAttribute('id', 'hidden');
-                    spanParagraph.textContent = paragraph;
-            
                     sec.appendChild(img);
                     sec.appendChild(h2);
                     sec.appendChild(spanHeading);
-                    sec.appendChild(spanParagraph);
         
                     aContainer.appendChild(sec);
             
