@@ -41,7 +41,7 @@
                     function redirect(){
                         if(timeleft <= 0){
                             clearInterval(downloadTimer);
-                            window.location.href='../../index.php';
+                            window.location.href='../index.php';
                         }
                         document.getElementById('seconds').innerHTML = timeleft;
                         timeleft -= 1;
@@ -69,7 +69,7 @@
                     function redirect(){
                         if(timeleft <= 0){
                             clearInterval(downloadTimer);
-                            window.location.href='../../index.php';
+                            window.location.href='../index.php';
                         }
                         document.getElementById('seconds').innerHTML = timeleft;
                         timeleft -= 1;
