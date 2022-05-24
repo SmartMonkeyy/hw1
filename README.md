@@ -5,5 +5,5 @@ Se si vuole accedere alla pagina per upload di articoli nel blog
 
 #### Altrimenti creare un nuovo account o accedere con i due già preimpostati
 
-- username: mrnickaa & password: Melo123@
-- username: prova & password: Melo123@
+- Username: mrnickaa & Password: Melo123@
+- Username: prova & Password: Melo123@
