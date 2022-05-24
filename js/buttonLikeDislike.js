@@ -12,7 +12,35 @@ function set(){
     }
 
     btnSection = document.querySelectorAll(".buttonSection");
+
+    fetch("php/check_liked.php").then(onLikeCheck).then(onJSONCheck);
+
+
 }
+
+function onLikeCheck(response){
+    return response.json();
+}
+
+function onJSONCheck(json){
+
+    console.log(json);
+
+    for(let i = 0; i < json.length; i++){
+
+        for(let j = 0; j < btn1.length; j++){
+
+            if(json[i].post === btn1[j].id){
+                btn1[j].classList.add('green');
+                btn1[j].removeEventListener('click', like);
+            }
+
+        }
+
+    }
+
+}
+
 
 var likebutton_selected;
 var dislikebutton_selected;
