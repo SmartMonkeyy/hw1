@@ -34,7 +34,6 @@ function onJSONCheck(json){
                 btn1[j].classList.add('green');
                 btn1[j].removeEventListener('click', like);
             }
-
         }
 
     }
