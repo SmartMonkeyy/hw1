@@ -1,4 +1,4 @@
-# username: root password: root
+# Username: root & Password: root
 Se si vuole accedere alla pagina per upload di articoli nel blog
 
 #### Contents
