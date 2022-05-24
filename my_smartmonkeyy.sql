@@ -37,11 +37,7 @@ INSERT INTO likes (user, post) VALUES
 (1, 6),
 (1, 8),
 (1, 9),
-(1, 11),
-(2, 1),
-(2, 2),
-(2, 7),
-(2, 10);
+(1, 11);
 
 DELIMITER //
 CREATE TRIGGER likes_trigger
