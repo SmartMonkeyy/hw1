@@ -71,7 +71,7 @@ function likePost(event){
 
     button = event.currentTarget;
 
-    createCookie("post_id", button.parentNode.parentNode.dataset.id, "1");
+    createCookie("post_id", button.parentNode.parentNode.dataset.id, 1);
 
     fetch("php/like_post.php").then(onLikeResponse).then(onJSONLikes);
 }
