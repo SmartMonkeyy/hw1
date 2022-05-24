@@ -72,5 +72,4 @@ CREATE TABLE users (
 
 INSERT INTO users (personid, username, password, salt) VALUES
 (0, 'root', 'e5afe57f631062d1de26481c1ecc24dad9b22e8429f2eda683cfcf5857d50268', 57237),
-(1, 'mrnickaa', 'b6caa5c6d9aa7d29330060573bf174517db361f0d317241079b49b047a23e89d', 88490),
-(2, 'prova', '0359fda251bd41a4349a1231d41a61a91e120b6280c4dd18e10f87a52afd0639', 96458);
+(1, 'mrnickaa', '21ebaaae0476de9649b3df79b217b772dff99079c91b7d091b4ee1d4b45b2832', 78172);
