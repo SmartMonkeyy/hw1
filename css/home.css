@@ -1,0 +1,760 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('fonts/GHGuardianHeadline-Semibold.woff2') format('woff2'),
+        url('fonts/GHGuardianHeadline-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+[data-tooltip] {
+    position: relative;
+    z-index: 10;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 50%;
+    top: calc(100% + 5px);
+    bottom: auto;
+    pointer-events: none;
+    transition: 0.2s;
+    will-change: transform;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    padding: 10px 18px;
+    min-width: 50px;
+    max-width: 300px;
+    width: max-content;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: rgba(59, 72, 80, 0.9);
+    background-image: linear-gradient(30deg,
+        rgba(59, 72, 80, 0.44),
+        rgba(59, 68, 75, 0.44),
+        rgba(60, 82, 88, 0.44));
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    white-space: pre-wrap;
+    transform: translate(-50%, 5px) scale(0.5);
+}
+  
+
+[data-tooltip]:after {
+    content: '';
+    border-style: solid;
+    border-width: 0px 5px 5px 5px;
+    border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+    transform-origin: bottom;
+    transform: translateX(100%) scaleY(0);
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+}
+
+[data-tooltip]:hover:before {
+    transition-delay: 0.1s;
+    transform: translate(-50%, 5px) scale(1);
+}
+
+[data-tooltip]:hover:after {
+    transition-delay: 0.3s;
+    transition-duration: 0.2s;
+    transform: translateX(-50%) scaleY(1);
+}
+
+:root {
+    --modal-display: none;
+    --overflow-body: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: block;
+    margin: 0;
+    font-size: 1em;
+    overflow: var(--overflow-body);
+    background-color: ghostwhite;
+}
+
+header {
+    display: block;
+    border-style: groove;
+}
+
+.blog-header {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: hsl(210, 100%, 80%);
+}
+
+@media (max-width: 1000px){
+    .blog-header{
+        height: 90px;
+    }
+}
+
+.nav-header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-header img{
+    width: 30px;
+    height: 30px;
+}
+
+.nav-header section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login100-form-logo {
+    text-decoration: none;
+    font-size: 30px;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+@media (max-width: 1000px){
+    .login100-form-logo{
+        margin-left: 5px;
+        font-size: 45px;
+        width: 160px;
+        height: 60px;
+    }
+}
+
+#header-link_W{
+    display: inline-block;
+    position: relative;
+    font-family: system-ui;
+    font-weight: 650;
+    text-decoration: none;
+    font-size: 20px;
+    color: #19191a;
+}
+
+#header-link_WO{
+    display: inline-block;
+    position: relative;
+    font-family: system-ui;
+    font-weight: 650;
+    text-decoration: none;
+    font-size: 20px;
+    color: #19191a;
+}
+
+#header-link_W:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scale(0, 1);
+    height: 3px;
+    top: 30px;
+    left: 0;
+    border-radius: 20px;
+    background-color: #0087ca;
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+#header-link_W:hover:after{
+    transform: scale(1, 1);
+}
+
+@media (max-width: 1000px){
+    #header-link_W,
+    #header-link_WO{
+        margin: 0 26px;
+        font-size: 40px;
+    }
+
+    [data-tooltip]:before,
+    [data-tooltip]:after,
+    #header-link_W:after{
+        display: none;
+    }
+}
+
+@media (max-width: 1000px){
+    .search-container{
+        padding-right: 50px;
+    }
+}
+
+.search-input{
+    width: auto;
+    height: 10px;
+    padding: 12px 24px;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 15px;
+    line-height: 18px;
+    color: #575756;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #575756;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+@media (max-width: 1000px){
+    .search-input{
+        width: 100%;
+        padding: 12px 20px;
+        height: 30px;
+    }
+}
+
+.search-input::placeholder{
+    color: color(#575756 a(0.8));
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.search-input:hover,
+.search-input:focus{
+    padding: 12px 24px;
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #575756;
+    border-radius: 0;
+    background-position: 100% center;
+}
+
+.usericon{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px){
+    .usericon{
+        margin-right: 5px;
+        font-size: 20px;
+    }
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.modal {
+    display: var(--modal-display);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    overflow-y: auto;
+    font-family: 'GH Guardian Headline';
+}
+  
+.modal-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: max-content;
+}
+
+.modal-content a{
+    color: #000000;
+}
+
+.modal-article{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: max-content;
+    margin: 7.5px 7.5px 7.5px 0;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    border-radius: 0.25rem;
+}
+
+
+.modal-article img{
+    width: 500px;
+    height: 333px;
+}
+
+
+  
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.NAVBAR{
+    height: max-content;
+    font-size: 70px;
+    padding-left: 30px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+@media (min-width: 1000px){
+    .NAVBAR{
+        display: none;
+    }
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(117, 117, 117, 0.95);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav .closebutton {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    font-size: 50px;
+    margin-right: -7px;
+    color: hsl(210, 100%, 80%);
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.info-sidenav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-sidenav span{
+    padding-top: 15px;
+    text-decoration: none;
+    font-size: 22px;
+    color: hsl(210, 100%, 80%);
+    display: block;
+}
+
+@media (max-width: 1000px){
+    .info-sidenav span{
+        font-size: 33px;
+    }
+}
+
+.info-sidenav a,
+.info-sidenav #reload{
+    display: inline-block;
+    position: relative;
+}
+
+.info-sidenav a:after,
+.info-sidenav #reload:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scale(0, 1);
+    height: 3px;
+    top: 40px;
+    left: 0;
+    border-radius: 20px;
+    background-color: #0087ca;
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+.info-sidenav a:hover:after,
+.info-sidenav #reload:hover:after{
+    transform: scale(1, 1);
+}
+
+@media (max-width: 1000px){
+    .info-sidenav a:after,
+    .info-sidenav #reload:after{
+        display: none;
+    }
+}
+
+.user-logo img{
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+
+#reload{
+    cursor: pointer;
+}
+
+.opacity{
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.5s;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.articles-and-widget-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+@media (max-width: 1000px){
+    .articles-and-widget-container{
+        padding: 0;
+        justify-content: center;
+    }
+}
+
+.widgets-container{
+    display: flex;
+    flex-direction: column;
+    width: 333px;
+    margin: 10px 5px 0 20px;
+    z-index: -1;
+}
+
+@media (max-width: 1000px){
+    .widgets-container{
+        display: none;
+    }
+}
+
+.widget{
+    margin-bottom: 5px;
+    width: auto;
+}
+
+.articles-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: max-content;
+    margin-top: 10px;
+}
+
+@media (max-width: 1000px){
+    .articles-container{
+        width: 90%;
+    }
+}
+
+.article{
+    display: flex;
+    flex-direction: column;
+    width: 345px;
+    height: 450px;
+    margin: 7.5px 7.5px 7.5px 0;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    border-radius: 0.25rem;
+    background-color: gainsboro;
+    transition: height 0.5s;
+}
+
+@media (max-width: 1000px){
+    .article{
+        width: 100%;
+        height: 700px;
+    }
+}
+
+.article img{
+    width: 345px;
+    height: 240px;
+}
+
+@media (max-width: 1000px){
+    .article img {
+        width: 100%;
+        height: 650px;
+    }
+}
+
+.margin{
+    margin-top: 5px;
+    margin-bottom: 7px;
+}
+
+
+.article h2{
+    font-family: 'GH Guardian Headline';
+    font-weight: 500;
+    color: #000000;
+}
+
+
+.article-text{
+    height: max-content;
+    display: none;
+    flex-direction: column;
+}
+
+
+.article span{
+    font-family: system-ui;
+    font-weight: bold;
+    color: #000000;
+    margin-right: 15px;
+}
+
+@media (max-width: 1000px){
+    .article span {
+        font-size: 25px;
+    }
+}
+
+.expand-post{
+    font-family: system-ui;
+    font-weight: 400;
+    text-decoration: underline;
+    font-size: 10px;
+    color: darkblue;
+    display: flex;
+    justify-content: right;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px){
+    .expand-post {
+        font-size: 20px;
+    }
+}
+
+.buttonSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+.like-dislike-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: 0;
+    color: #AAA;
+    width: 40px;
+    height: 40px;
+    border-radius: 0.25rem;
+    margin: 1px;
+    border: 1px solid transparent;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+@media (max-width: 1000px){
+    .like-dislike-button {
+        width: 70px;
+        height: 70px;
+    }
+
+    .fa-lg {
+        font-size: 2.5em;
+    }
+}
+
+.like-dislike-button:focus{
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+.like-dislike-button i{
+    pointer-events: none;
+}
+
+.no-decoration{
+    text-decoration: none;
+}
+
+.guardianimg{
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titles{
+    font-family: 'GH Guardian Headline';
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+.type{
+    font-family: 'GH Guardian Headline';
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+    margin: 0;
+}
+
+.blog-footer{
+    background-color: hsl(210, 40%, 80%);
+    color: black;
+    font-family: 'GH Guardian Headline';
+    height: max-content;
+}
+
+.div-footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
+
+/*#homework{
+}*/
+
+@media (max-width: 1000px){
+    #homework{
+        margin-left: 60px;
+    }
+}
+
+.div-footer a{
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+ul{
+    margin: 0;
+}
+
+.ul-footer{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ul-footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.div-footer a:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scale(0, 1);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    border-radius: 20px;
+    background-color: #0087ca;
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+.div-footer a:hover:after{
+    transform: scale(1, 1);
+}
+
+.ul-footer li{
+    padding: 10px 10px 0 10px;
+}
+
+/*.newsletter{
+}*/
+
+.footer-news{
+    padding: 12px 24px;
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'GH Guardian Headline';
+}
+
+#footer-sub{
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    padding: 0px 0.875rem;
+    border-radius: 0.25rem;
+    height: 2.5rem;
+    font-family: 'GH Guardian Headline';
+}
+
+.at{
+    padding: 30px 0 5px 0;
+    text-align: center;
+}
