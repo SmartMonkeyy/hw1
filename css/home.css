@@ -547,6 +547,12 @@ header {
     color: #000000;
 }
 
+@media (max-width: 1000px){
+    .article h2 {
+        font-size: 25px;
+    }
+}
+
 
 .article-text{
     height: max-content;
