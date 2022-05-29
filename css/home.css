@@ -474,7 +474,6 @@ header {
     flex-direction: column;
     width: 333px;
     margin: 10px 5px 0 20px;
-    z-index: -1;
 }
 
 @media (max-width: 1000px){
