@@ -40,6 +40,7 @@ header {
     align-items: center;
     justify-content: space-between;
     background-color: hsl(210, 100%, 80%);
+    z-index: 1;
 }
 
 @media (max-width: 1000px){
